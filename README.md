@@ -16,8 +16,7 @@ Richardson,	Chebyshev,	Conjugate Gradient,
 BiConjugate Gradient,	Generalized Minimal,	Residual,	
 Flexible Generalized,	Minimal Residual,	Deflated Generalized,	
 Minimal Residual,	Generalized Conjugate,	Residual,	
-Squared,	Transpose-Free,	Quasi-Minimal Residual(1),	
-Transpose-Free,	Quasi-Minimal Residual(2),	Conjugate Residual,	
+Squared,	Transpose-Free,	Quasi-Minimal Residual,	Conjugate Residual,	
 Least Squares Method	
 
 # Getting Started:
