@@ -33,7 +33,7 @@ PetscErrorCode main (int argc,char** argv)
 	PetscCall(PetscTime(&_begintime));
 	//=====================================================
 	// The program is called with one parameter, 
-	// the FEM structure.inp input file
+	// the FEMstructure.inp input file
 	//=====================================================
 
 	// Check if the user put the correct number of arguments 
@@ -80,7 +80,7 @@ PetscErrorCode main (int argc,char** argv)
 
 
 	//=====================================================
-	// Open log file for writing progress of calculation
+	// Open log file for writing progress of the calculation
 	// =================================================
 
 	char buffer[200];
