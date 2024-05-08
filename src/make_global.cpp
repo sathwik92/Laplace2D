@@ -116,8 +116,6 @@ PetscErrorCode make_global(global_matrices& gmat, data& dat)
 							ie = a*dat.ndof+c;
 							je = b*dat.ndof+d;
 							wpp = 0.5*wt*jacobian*(phipx[ie]*phipx[je]+phipy[ie]*phipy[je]); 
-							//	cout << "x derivative value: " << phipx[je] << "y derivative: "<<phipy[je] <<endl;
-							//      wpp = 0.5*wt*jacobian*(phipx[ie]*phipx[je]+phipy[ie]*phipy[je]); 
 							// the jacobian here arises from the integration which is done in the
 							// "local" element and therefore requires a jacobian(scale) factor!!
 							// wff = wt*jacobian*(phi[ie]*phi[je]+phiy[ie]*phiy[je]);
