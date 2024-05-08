@@ -1,15 +1,15 @@
-# Laplace Equation in Two dimensions solved using Finite Element Method
+# Laplace's equation in Two dimensions solved using the Finite Element Method
 
-An Example code to solve Laplace problem in 2D using finite element method (FEM) implemented within a Parallel Computing Environment. Here we have applied dirichlet boundary conditions with 3 sides of
+An Example code to solve the Laplace problem in 2D using finite element method (FEM) implemented within a Parallel Computing Environment. Here we have applied Dirichlet boundary conditions with 3 sides of
 the rectangle as zero and one side as a sine function. 
 
-We perform discretization within unstructured 2D traingles. Mesh files are included in the mesh/ folder. 
+We perform discretization within unstructured 2D triangles. Mesh files are included in the mesh/ folder. 
 
 This program can handle both linear and quintic Hermite polynomials as the finite element basis functions. 
 
-Gauss-Dunavant quadrature method is used to compute the numerical integration. 
+The Gauss-Dunavant quadrature method is used to compute the numerical integration. 
 
-FEM matrix can be solved here using a number of parallel solvers listed below. 
+The FEM matrix can be solved here using a number of parallel solvers listed below. 
 
 ## Available Sparse Linear Solvers				
 Richardson,	Chebyshev,	Conjugate Gradient,
