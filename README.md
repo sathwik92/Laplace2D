@@ -1,6 +1,6 @@
 # Laplace's equation in Two dimensions solved using the Finite Element Method
 
-An Example code to solve the scalar Laplace's problem in two-dimensions (2D) using finite element method (FEM) implemented within a Parallel Computing Environment. Here we have applied Dirichlet boundary conditions with 3 sides of
+An Example code to solve the scalar Laplace's problem in two-dimensions (2D) using finite element method (FEM) implemented within an MPI-based Parallel Computing Environment. Here we have applied Dirichlet boundary conditions with 3 sides of
 the rectangle as zero and one side as a sine function. 
 
 We perform discretization within unstructured 2D triangles. Mesh files are included in the mesh/ folder. 
