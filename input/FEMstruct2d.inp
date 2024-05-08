@@ -1,0 +1,121 @@
+#:=============================================================:
+#:=============================================================:
+#:File  Fem_struct.inp                                         :
+#:Created: March 10, 2017
+#:Author: Sathwik Bharadwaj
+#:Last Modified:
+#:=============================================================:
+#: This input file MUST have '#:' as the first two characters  :
+#: in comment lines !!!  Otherwise, if a  '#' is missing, for  :
+#: example,the program will read in incorrect data!!! So check :
+#: the output to verify input numbers.                         :
+#: DO NOT USE COMMAS for separating input numbers!!            :
+#:=============================================================:
+#:..............................................................
+#: CONTROL for OUTPUT to SCREEN 
+#: Debugging information level (ndebug 0/1/2)
+#:..............................................................
+     2
+#:..............................................................
+#:===================================================================
+#:...................................................................
+#: Enter Minimum and Maximum coordinates on the X-axis
+#: Xmin and Xmax
+#:..................................................................
+   0        20
+#:..................................................................
+#: Enter Minimum and Maximum coordinates on the Y-axis
+#: Ymin and Ymax
+#:...................................................................
+   0        20
+#:...................................................................
+#:...................................................................
+#: POINTS ALONG ZX-AXIS AND ZY-AXIS for solution reconstruction (ndz)
+#:...................................................................
+   50  50
+#:...................................................................
+#:===================================================================
+#: FINITE ELEMENT INFORMATION: 
+#:..............................................................
+#: Nodes_elem (3/6),  Deg of Freedom (1/6) Band Deg of Freedom: 
+#: (Only the following are implemented)
+#: Element type: Linear (3 1)
+#:               qunitic hermite (3 6)
+#:..............................................................
+   3   6   1
+#:..............................................................
+#:==============================================================
+#: Order of Gauss Quadrature in elements
+#: Type of elements| |Recommended Order 
+#:	        linear  : ngaus = 4 
+#:       quadratic  : ngaus = 12
+#: quintic Hermite  : ngaus = 48 (25)
+#:..............................................................
+   48
+#:==============================================================
+#:==============================================================
+#: Preconditioners for the matrix solver
+#:..............................................................
+#:..............................................................
+#: Relative convergence tolerance 
+#: relative decrease in the residual norm
+#: Default: 1.0e-5.0
+#:..............................................................
+   0.00001
+#:..............................................................
+#: Maximum allowed iterations
+#:..............................................................
+   10000
+#:..............................................................
+#: Absolute convergence tolerance 
+#: absolute size of the residual norm 
+#: Default: 1.0e-50 
+#:..............................................................
+   1e-50
+#:..............................................................
+#: Divergence tolerance
+#: amount residual norm can increase before KSPConvergedDefault() 
+#: concludes that the method is diverging 
+#:..............................................................
+   1e5
+#:..............................................................
+#: Solver type(see Footnote 1)
+#:..............................................................
+   gmres
+#:..........................................................................
+#:  Output files:
+#:  ------------ 
+#:  path to folder containing output files:
+#:  (a '\' is needed to terminate the output path string below)
+#:  The output folder must be present before the program is run
+#:..........................................................................
+   ../output/
+#:..........................................................................
+#:=========================================================================
+#:                   Footnote 1                         
+#:=========================================================================
+#	Method			Database name	
+#	Richardson		richardson
+#	Chebyshev		chebyshev
+#	Conjugate Gradient	cg
+#	BiConjugate Gradient	bcg
+#	Generalized Minimal 
+#	Residual 		gmres
+#	Flexible Generalized 
+#	Minimal Residual	fgmres
+#	Deflated Generalized 
+#	Minimal Residual	dgmres
+#	Generalized Conjugate 
+#	Residual		gcr
+#	BiCGSTAB 		bcgs
+#	Conjugate Gradient 
+#	Squared 		cgs
+#	Transpose-Free 
+#    Quasi-Minimal Residual(1)	tfqmr
+#	Transpose-Free  
+#    Quasi-Minimal Residual(2)	tcqmr
+#	Conjugate Residual	cr
+#	Least Squares Method	lsqr
+#	Shell for no KSP method	preonly
+#:=============================================================================
+#:==========================================================================
