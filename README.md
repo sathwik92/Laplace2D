@@ -11,27 +11,26 @@ Gauss-Dunavant quadrature method is used to compute the numerical integration.
 
 FEM matrix can be solved here using a number of parallel solvers listed below. 
 
-## Methods				
-Richardson		
-Chebyshev		
-Conjugate Gradient	
-BiConjugate Gradient	
-Generalized Minimal 
-Residual 		
-Flexible Generalized 
-Minimal Residual	
-Deflated Generalized 
-Minimal Residual	
-Generalized Conjugate 
-Residual		
-Squared 		
-Transpose-Free 
-Quasi-Minimal Residual(1)	
-Transpose-Free  
-Quasi-Minimal Residual(2)	
-Conjugate Residual	
+## Available Sparse Linear Solvers				
+Richardson
+Chebyshev
+Conjugate Gradient
+BiConjugate Gradient
+Generalized Minimal
+Residual
+Flexible Generalized
+Minimal Residual
+Deflated Generalized
+Minimal Residual
+Generalized Conjugate
+Residual
+Squared
+Transpose-Free
+Quasi-Minimal Residual(1)
+Transpose-Free
+Quasi-Minimal Residual(2)
+Conjugate Residual
 Least Squares Method	
-Shell for no KSP method
 
 # Getting Started:
 
@@ -71,4 +70,5 @@ Sathwik Bharadwaj
 ## License
 This project is licensed under the MIT License.
 
-# Acknowlegement 
+## References
+Balay, S. et al. (2015) PETSc Web page. Available at: http://www.mcs.anl.gov/petsc. 
