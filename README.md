@@ -3,13 +3,13 @@
 An Example code to solve the scalar Laplace's problem in two-dimensions (2D) using finite element method (FEM) implemented within an MPI-based Parallel Computing Environment. Here we have applied Dirichlet boundary conditions with 3 sides of
 the rectangle as zero and one side as a sine function. 
 
-We perform discretization within unstructured 2D triangles. Mesh files are included in the mesh/ folder. 
+We perform discretization within unstructured 2D triangles. Mesh files are included in the mesh/ directory. 
 
 This program can handle both linear and quintic Hermite polynomials as the finite element basis functions. 
 
 The Gauss-Dunavant quadrature method is used to compute the numerical integration. 
 
-The FEM matrix can be solved here using a number of parallel solvers listed below. 
+The FEM matrix can be solved here using several parallel solvers listed below. 
 
 ## Available Sparse Linear Solvers				
 Richardson,	Chebyshev,	Conjugate Gradient,
@@ -38,6 +38,7 @@ make all check
 ## Installation:
 
 cd src
+
 make
 
 ## Example Input File:
