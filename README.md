@@ -12,24 +12,12 @@ Gauss-Dunavant quadrature method is used to compute the numerical integration.
 FEM matrix can be solved here using a number of parallel solvers listed below. 
 
 ## Available Sparse Linear Solvers				
-Richardson
-Chebyshev
-Conjugate Gradient
-BiConjugate Gradient
-Generalized Minimal
-Residual
-Flexible Generalized
-Minimal Residual
-Deflated Generalized
-Minimal Residual
-Generalized Conjugate
-Residual
-Squared
-Transpose-Free
-Quasi-Minimal Residual(1)
-Transpose-Free
-Quasi-Minimal Residual(2)
-Conjugate Residual
+Richardson,	Chebyshev,	Conjugate Gradient,
+BiConjugate Gradient,	Generalized Minimal,	Residual,	
+Flexible Generalized,	Minimal Residual,	Deflated Generalized,	
+Minimal Residual,	Generalized Conjugate,	Residual,	
+Squared,	Transpose-Free,	Quasi-Minimal Residual(1),	
+Transpose-Free,	Quasi-Minimal Residual(2),	Conjugate Residual,	
 Least Squares Method	
 
 # Getting Started:
@@ -56,10 +44,15 @@ make
 ## Example Input File:
 FEMstruct2d.inp
 
-This file can be found in input/
+This file can be found in input directory.
 
 ## Output:
+Output files are written in output directory. 
+Solutions are written in:
 output.out
+
+FEM matrix parameters are written in:
+input_params.out
 
 ## Example:
 ./Laplace2d FEMstruct2d.inp

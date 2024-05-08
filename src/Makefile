@@ -1,15 +1,24 @@
+######################################################################
+#Include the variables from PETSC directory
+######################################################################
 include ${PETSC_DIR}/lib/petsc/conf/variables
 ######################################################################
 # MODIFY PARAMETERS IN THIS SECTION
 ######################################################################
 # Add the names of your .cpp files below
+######################################################################
 FILES = input_reader main utiltrig make_global apply_bc petsc_diagonalizer solution
 
 
+######################################################################
 # The name of the binary to be output
+######################################################################
 BINARY_NAME= Laplace2d
+######################################################################
 
+######################################################################
 # The MPI enabled compiler to use
+######################################################################
 MPICXX= mpicxx
 ######################################################################
 # GENERATE NAMES OF FILES
@@ -44,5 +53,4 @@ $(BINARY_NAME): $(OBJ_FILES)
 
 clear:
 	$(RM) $(RMFL) $(OBJ_FILES) $(BINARY_NAME) *~
-#	rm -f *o. $(BINARY)
 remake: clear all

@@ -12,32 +12,15 @@
 // Functions within this file:
 //	template <typename T> T readin(std::ifstream& file, const char* description, int ndebug);
 //	int determine_current_line_number( std::ifstream& file);
-//	int determine_current_line_number( std::ifstream& file);
+//	void ignore_until ( std::ifstream& file, char c );
 //=================================================================
+//header file with all external libraries and user defined classes.
 #include "global_params.h"
 //=================================================================
 
 /*!
  *
- * @brief Ignores all characters in the stream until the specified character
- * is reached.  The specified character is also ignored.
- *
- * @param[in] file an std::ifstream specifying the file to be read from
- * @param[in] c    a character specifying the character to stop at
- *
- *
- * This function is very similar to the ignore function that is a member of
- * the istream class, except that the istream function requires a maximum
- * search length to be specified, and once that many characters have been
- * searched through, the function will stop searching even if the specified
- * character has not been detected.  I could find no way to specify an 
- * unlimited search length, and so wrote this replacement.
- * 
- */
-
-/*!
- *
- * @brief Returns the line in the file that the get pointer of the given 
+ * Returns the line in the file that the get pointer of the given 
  * std::ifstream is on.  \note The first line would be returned as one not zero.
  *
  * @param[in] file an std::ifstream specifying the file to be read from
@@ -64,12 +47,83 @@ int determine_current_line_number( std::ifstream& file)
 	return linenum;
 }
 
+/*!
+ *
+ * Ignores all characters in the stream until the specified character
+ * is reached.  The specified character is also ignored.
+ *
+ * @param[in] file an std::ifstream specifying the file to be read from
+ * @param[in] c    a character specifying the character to stop at
+ *
+ *
+ * This function is very similar to the ignore function that is a member of
+ * the istream class, except that the istream function requires a maximum
+ * search length to be specified, and once that many characters have been
+ * searched through, the function will stop searching even if the specified
+ * character has not been detected.  I could find no way to specify an 
+ * unlimited search length, and so wrote this replacement.
+ * 
+ */
+
 void ignore_until ( std::ifstream& file, char c )
 {
 	char ch;
 	while ( file.get ( ch ) && ch != c ) ;
 }
-
+/*!
+ *
+ * @brief Allows data of a specified type to be readin from a file.  All 
+ * whitespace is ignored except as separators between values, and a '#' 
+ * character anywhere on a line will cause the rest of the line to be 
+ * ignored. 
+ *
+ * @param[in]  file          an ifstream specifying the file to be read from
+ * @param[out] data          a void* pointing to where the output is stored
+ * @param[in]  description   a const char* containing the description of the value
+ * @param[in]  type          a char containing the type of data to be read in.  For a list of recognized types see \ref RecognizedTypes.
+ * @param[in]  units         a const char* specifying what the units (if any) of the input are.
+ * @param[in]  ndebug        a int specifying the debug output level.  For a list of recognized debug levels see \ref DebugLevels. 
+ *
+ * \section WhitespaceAndCommentHandling Whitespace and Comment Handling
+ * Whitespace is completely ignored except as a separator for data values.  
+ * Because of this, there is no way to load a string with whitespace in it,
+ * or a char containing whitespace.  Also the " and ' characters are treated 
+ * as regular characters.
+ *
+ * If at any Point in the file a '#' character is encountered, the rest of
+ * the line will be ignored.  As a result, there is no way to load the '#'
+ * character in a string or in a character.
+ *
+ * 
+ * \section Warnings Possible Error and Warning Messages
+ * \par
+ * If the end of the file is reached while reading for input, an exception 
+ * is thrown and a message will be printed specifying the description and 
+ * type of the input that caused the error.  
+ *
+ * \par
+ * If the specified type was not recognized an exception is thrown and a 
+ * message is printed specifying the description and type of the input, and 
+ * the list of recognized inputs.For a list of recognized types data types see 
+ * \ref RecognizedTypes.
+ *
+ * \par
+ * For warnings regarding conversion, see \ref DataConversion.   
+ * 
+ * \section DataConversion Description of Data Conversion
+ * All conversions are done using stringstreams.  Data is read from the file as
+ * a string.  This string is pushed into a stringstream, and then data from the
+ * stringstream is extracted into the output with the specified type (for a list
+ * of recognized types see \ref RecognizedTypes).  If after doing this the
+ * stringstream's failbit or badbit is set, then an error is raised, and a
+ * message printed out stating that conversion was not possible and specifying
+ * the line where the input was read from, the type and description of  the
+ * expected input, and the input string that was readin.  If after doing this the
+ * stringstream's failbit and badbit are not set, but neither is the eofbit, then
+ * a warning is printed stating that some of the data that was readin could not
+ * be converted and specifying the actual read in string and the type that it
+ * tried to convert it to.
+ */
 	template <typename T> 
 T readin(std::ifstream& file, const char* description, int ndebug)
 {
@@ -167,16 +221,14 @@ T readin(std::ifstream& file, const char* description, int ndebug)
 	return ansi;
 }
 
+/*
+ * This function is used to read the parameters from the input file in.  
+ */
 void input_reader(std::ifstream &in, data &dat)
 {
 
 	//=================================================================
 	int i; //dummy variable
-	       // open file to output the actual data used: this is for verification
-	char buffer[200];
-	sprintf(buffer,"../input_params.out");
-	std::ofstream fout(buffer);
-
 	//=================================================================
 
 	dat.ndebug = readin<int>(in,"Debug Level:", 1);       // 'I' - integer
@@ -245,19 +297,28 @@ void input_reader(std::ifstream &in, data &dat)
 						     // more like # of interpolation
 						     // polynomials
 
-						     //=================================================================
+	//=================================================================
+	// open file to output the actual data used: this is for verification
+	//=================================================================
+	char outputpath[50];
+	strncpy(outputpath, dat.output_files_path.c_str(), sizeof(outputpath));
+	outputpath[sizeof(outputpath) - 1] = 0;
+	char buffer[200];
+	sprintf(buffer,"%sinput_params.out", outputpath);
+	std::ofstream fout(buffer);
+	fout <<"====================================" << std::endl;
 	fout <<"============================" << std::endl;
 	fout <<"Example FEM calculation: Laplace equations in 2D" << std::endl;
 	fout <<"      Sathwik Bharadwaj     " << std::endl;
 	fout <<"============================" << std::endl;
-	fout <<"Size of the global matrices: "<< dat.nglobal <<std::endl;
+	fout <<"Size of the global matrix and vector: "<< dat.nglobal <<std::endl;
 	fout <<"Global number of nodes     : " << dat.ngnodes << std::endl<< std::endl;
 	fout <<"Number of elements         : " << dat.nelem <<std::endl;
 
 	fout <<"Number of nodes per element: " << dat.node_elem << std::endl;
 	fout <<"Degrees of Freedom per node: " << dat.ndof << std::endl;
-	fout <<"Size of element matrices   : " << dat.nele_mat << std::endl;  
-	fout <<"============================" << std::endl<<std::endl;
+	fout <<"Size of element matrix   : " << dat.nele_mat << std::endl;  
+	fout <<"============================" << std::endl;
 	fout <<"====================================" << std::endl;
 	fout.close();
 	return;

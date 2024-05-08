@@ -5,10 +5,12 @@
 //  Modified: 
 //  Last change: 
 //  Function: 
+//  PetscErrorCode main (int argc,char** argv)
 //=================================================================
 
 //=================================================================
 static char help[] = "An Example code to solve Laplace problem in 2D using FEM within Parallel Computing Environment\n\n";
+//header file with all external libraries and user defined classes.
 #include "global_params.h"
 
 

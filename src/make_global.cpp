@@ -13,6 +13,8 @@
 //	PetscErrorCode make_global(global_matrices& gmat, data& dat);
 //=================================================================
 
+//header file with all external libraries and user defined classes.
+#include "global_params.h"
 #include "global_params.h"
 
 PetscErrorCode make_global(global_matrices& gmat, data& dat)

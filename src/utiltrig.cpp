@@ -19,7 +19,7 @@
 //
 //=========================================================
 
-#include <stdio.h>
+//header file with all external libraries and user defined classes.
 #include "global_params.h"
 
 //==========================================================

@@ -14,6 +14,7 @@
 // 	 PetscErrorCode solution(global_matrices & gmat, data & dat, Vec psi);
 //  
 // =================================================================
+//header file with all external libraries and user defined classes.
 #include "global_params.h"
 
 PetscErrorCode solution(global_matrices & gmat ,data & dat, Vec psi)                 

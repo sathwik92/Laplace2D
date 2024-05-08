@@ -12,7 +12,15 @@
 #: DO NOT USE COMMAS for separating input numbers!!            :
 #:=============================================================:
 #:..............................................................
-#: CONTROL for OUTPUT to SCREEN 
+#: CONTROL for OUTPUT to SCREEN
+#: Debug Levels
+#: There are 3 debug levels:
+#:	- 0 Silent.  No output is produced unless an error is encountered.
+#:	- 1 Verbose.  The line, type, description, and units of each piece of data 
+#:	that is read in is printed.  Also any conversion warning are printed.
+#:	- 2 Strict.  The output is the same as mode 1, but now a warning will cause the
+#:	program to terminate after printing the warning message.
+#:..............................................................
 #: Debugging information level (ndebug 0/1/2)
 #:..............................................................
      2
@@ -30,7 +38,7 @@
    0        20
 #:...................................................................
 #:...................................................................
-#: POINTS ALONG ZX-AXIS AND ZY-AXIS for solution reconstruction (ndz)
+#: POINTS ALONG X-AXIS AND Y-AXIS for solution reconstruction (ndz)
 #:...................................................................
    50  50
 #:...................................................................

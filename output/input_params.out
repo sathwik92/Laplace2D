@@ -1,0 +1,14 @@
+====================================
+============================
+Example FEM calculation: Laplace equations in 2D
+      Sathwik Bharadwaj     
+============================
+Size of the global matrix and vector: 13350
+Global number of nodes     : 2225
+
+Number of elements         : 4288
+Number of nodes per element: 3
+Degrees of Freedom per node: 6
+Size of element matrix   : 18
+============================
+====================================

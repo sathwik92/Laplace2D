@@ -13,7 +13,7 @@
 //
 //
 //=================================================================
-#include <petscksp.h>
+//header file with all external libraries and user defined classes.
 #include "global_params.h"
 PetscErrorCode petsc_diagonalizer(global_matrices & gmat , data & dat)
 {
