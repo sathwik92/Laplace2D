@@ -1,4 +1,4 @@
-# Laplace's equation in Two dimensions solved using the Finite Element Method
+# Solving Laplace's Equation in two-dimensions (2D) using the Finite Element Method
 
 An Example code to solve the scalar Laplace's problem in two-dimensions (2D) using finite element method (FEM) implemented within an MPI-based Parallel Computing Environment. Here we have applied Dirichlet boundary conditions with 3 sides of
 the rectangle as zero and one side as a sine function. 
@@ -30,6 +30,7 @@ git clone -b release https://gitlab.com/petsc/petsc.git petsc
 git pull
 
 cd petsc/
+
 ./configure --with-cc=mpicc --with-cxx=mpicxx --download-mpich --download-fblaslapack
 make PETSC_DIR=/mnt/c/Users/sathw/Documents/petsc PETSC_ARCH=arch-linux-c-debug all
 make PETSC_DIR=/mnt/c/Users/sathw/Documents/petsc PETSC_ARCH=arch-linux-c-debug check
@@ -44,10 +45,10 @@ make
 ## Example Input File:
 FEMstruct2d.inp
 
-This file can be found in input directory.
+This file can be found in the input directory.
 
 ## Output:
-Output files are written in output directory. 
+Output files are written in the output directory. 
 Solutions are written in:
 output.out
 
@@ -58,7 +59,7 @@ input_params.out
 ./Laplace2d FEMstruct2d.inp
 
 # Author
-Sathwik Bharadwaj 
+Sathwik Bharadwaj
 
 ## License
 This project is licensed under the MIT License.
